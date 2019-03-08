@@ -1,0 +1,19 @@
+{
+  "name": "starter",
+  "version": "0.0.1",
+  "description": "Ivan's work on Udemy Course advanced-css-and-sass",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "compile:scss": "node-sass scss/main.scss css/style.css -w"
+  },
+  "keywords": [
+    "SCSS"
+  ],
+  "author": "Ivan Dyankov",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.11.0"
+  }
+}

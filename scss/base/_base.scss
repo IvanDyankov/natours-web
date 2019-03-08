@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit; /* all elements inherit this from parent, ultimately from body */
+}
+
+html {
+  // Default font size in %, to measure REMs
+  font-size: 62.5%;  // 1rem = 10px; 10/16 = 62.5 %
+
+  @include respond(tab-land) { // 1rem = 9px; 9/16 = 56.25%;
+    font-size: 56.25%;
+  }
+
+  /* use more specific media queries last */
+  @include respond(tab-port) { // 1rem = 8 px; 8/16 = 50%;
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) { // 1rem = 12px; 12/16 = 75%;
+    font-size: 75%;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  color: $color-gray-dark;
+  padding: 3rem;
+  /* box model to exclude margin and padding from width/height of elements */
+  box-sizing: border-box;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

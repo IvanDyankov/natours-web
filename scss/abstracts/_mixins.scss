@@ -1,0 +1,53 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin gradientText {
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  display: inline-block; // does not occupy 100% of available width
+  -webkit-background-clip: text; // clip around the text
+  background-clip: text;
+  color: transparent; // make text color transparent so you see the background
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+Media Queries
+0px - 600px           phone                phone
+600px - 900px         tablet-portrait      tab-port
+900px - 12000px       tablet-landscape     tab-land
+[12000px - 18000px]   our styles apply
+over 18000px          big-desktop          big-dekstop
+
+1em = 16px;
+*/
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content }; // 600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content }; // 900px;
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content }; // 1200px
+  }
+
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content }; //1800
+  }
+}
